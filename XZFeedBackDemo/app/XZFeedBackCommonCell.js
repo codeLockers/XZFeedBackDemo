@@ -20,7 +20,7 @@ class XZFeedBackCommonCell extends Component {
   }
 
   _onPressed(){
-  	console.log(this.props.title)
+    this.props.showAlertView(this.props.rowID)
   }
 
   render() {
