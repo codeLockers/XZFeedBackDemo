@@ -5,7 +5,8 @@ import {
   Text,
   View,
   Navigator,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 
 import XZFeedBackScene from './XZFeedBackScene.js'
@@ -19,10 +20,14 @@ export default class XZFeedBackDemo extends Component {
       LeftButton(route,navigator,index,navState){
 
         return(
-          <Image
-          style={{width:11.5,height:21,marginLeft:10,marginTop:(40-21)/2}}
-          source={require('../image/back.png')}
-          />
+          <TouchableOpacity onPress = {() => {
+            navigator.pop()
+          }}>
+            <Image
+            style={{width:11.5,height:21,marginLeft:10,marginTop:(40-21)/2}}
+            source={require('../image/back.png')}
+            />
+          </TouchableOpacity>
         )
       },
       Title(route,navigator,index,navState){

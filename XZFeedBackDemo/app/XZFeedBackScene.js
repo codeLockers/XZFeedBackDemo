@@ -14,6 +14,7 @@ import XZFeedBackHotLineCell from './XZFeedBackHotLineCell.js'
 import XZFeedBackIdeaCell from './XZFeedBackIdeaCell.js'
 import XZFeedBackCommonCell from './XZFeedBackCommonCell.js'
 import XZFeedBackAlertView from './XZFeedBackAlertView.js'
+import XZFeedBackIdeaScene from './XZFeedBackIdeaScene.js'
 
 class XZFeedBackScene extends Component {
 
@@ -65,7 +66,15 @@ _hideAlertView(){
   	if (rowID == 0) {
   		return(<XZFeedBackHotLineCell title={rowData}/>)
   	}else if(rowID == 1){
-  		return(<XZFeedBackIdeaCell title={rowData}/>)
+  		return(
+        <XZFeedBackIdeaCell 
+        title={rowData} 
+        onPress={() => {
+          this.props.navigator.push({
+            title:'意见反馈',
+            component:XZFeedBackIdeaScene
+          })
+        }}/>)
   	}
 
   	return(<XZFeedBackCommonCell title={rowData} rowID={rowID} showAlertView={this._showAlertView.bind(this)}/>)
